@@ -10,6 +10,7 @@
 
 # In[12]:
 
+
 import mbuild as mb
 
 class Methane(mb.Compound):
@@ -20,6 +21,7 @@ class Methane(mb.Compound):
 # Any `Compound` can contain other `Compounds` which can be added using its `add()` method. `Compounds` at the bottom of such a hierarchy are referred to as `Particles`. Note however, that this is purely semantic in mBuild to help clearly designate the bottom of a hierarchy.
 
 # In[13]:
+
 
 import mbuild as mb
 
@@ -45,6 +47,7 @@ class Methane(mb.Compound):
 
 # In[14]:
 
+
 import mbuild as mb
 
 class Methane(mb.Compound):
@@ -64,6 +67,7 @@ class Methane(mb.Compound):
 # Alright now that we've got the basics, let's finish building our `Methane` and take a look at it:
 
 # In[15]:
+
 
 import mbuild as mb
 
@@ -89,11 +93,13 @@ class Methane(mb.Compound):
 
 # In[16]:
 
+
 methane = Methane()
 methane.visualize()
 
 
 # In[17]:
+
 
 # Save to .mol2
 methane.save('methane.mol2')

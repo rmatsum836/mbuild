@@ -4935,6 +4935,29 @@ returned to the user.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="mbuild.packing.fill_region">
+<code class="descclassname">mbuild.packing.</code><code class="descname">fill_region</code><span class="sig-paren">(</span><em>compound</em>, <em>n_compounds</em>, <em>region</em>, <em>overlap=0.2</em>, <em>seed=12345</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/packing.html#fill_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.packing.fill_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill a region of a box with a compound using packmol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>compound</strong> : mb.Compound or list of mb.Compound</p>
+<p><strong>n_compounds</strong> : int or list of int</p>
+<p><strong>region</strong> : mb.Box or list of mb.Box</p>
+<p><strong>overlap</strong> : float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>filled</strong> : mb.Compound</p>
+<p>If using mulitple regions and compounds, the nth value in each list are used in order.</p>
+<p class="last">For example, if the third compound will be put in the third region using the third value in n_compounds.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="mbuild.packing.solvate">
 <code class="descclassname">mbuild.packing.</code><code class="descname">solvate</code><span class="sig-paren">(</span><em>solute</em>, <em>solvent</em>, <em>n_solvent</em>, <em>box</em>, <em>overlap=0.2</em>, <em>seed=12345</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/packing.html#solvate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.packing.solvate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solvate a compound in a box of solvent using packmol.</p>
@@ -5140,7 +5163,7 @@ If np.ndarray, scale each direction independently.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

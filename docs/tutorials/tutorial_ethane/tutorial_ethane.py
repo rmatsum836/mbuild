@@ -13,6 +13,7 @@
 
 # In[1]:
 
+
 import mbuild as mb
 
 
@@ -21,6 +22,7 @@ import mbuild as mb
 # Let's start by reading a methyl group from a `.pdb` file:
 
 # In[2]:
+
 
 import mbuild as mb
 
@@ -32,6 +34,7 @@ ch3.visualize()
 
 # In[3]:
 
+
 import mbuild as mb
 
 ch3 = mb.load('ch3.pdb')
@@ -42,6 +45,7 @@ mb.translate(ch3, -ch3[0].pos)  # Move carbon to origin.
 # can now form bonds to this carbon:
 
 # In[4]:
+
 
 import mbuild as mb
 
@@ -59,12 +63,14 @@ mb.translate(ch3['up'], [0, -0.07, 0])
 
 # In[5]:
 
+
 ch3.visualize(show_ports=True)
 
 
 # Now we wrap the methyl group into a python class, so that we can reuse it as a component to build more complex molecules later.
 
 # In[6]:
+
 
 import mbuild as mb
 
@@ -93,6 +99,7 @@ class CH3(mb.Compound):
 
 # In[7]:
 
+
 ethane = mb.Compound()
 
 ethane.add(CH3(), label="methyl_1")
@@ -107,10 +114,12 @@ mb.force_overlap(move_this=ethane['methyl_1'],
 
 # In[8]:
 
+
 ethane.visualize()
 
 
 # In[9]:
+
 
 ethane.visualize(show_ports=True)
 
@@ -118,6 +127,7 @@ ethane.visualize(show_ports=True)
 # Similarly, if we want to make ethane a reusable component, we need to wrap it into a python class.
 
 # In[10]:
+
 
 import mbuild as mb
 
@@ -134,17 +144,20 @@ class Ethane(mb.Compound):
 
 # In[11]:
 
+
 ethane = Ethane()
 ethane.visualize()
 
 
 # In[12]:
 
+
 # Save to .mol2
 ethane.save('ethane.mol2', overwrite=True)
 
 
 # In[ ]:
+
 
 
 

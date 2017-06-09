@@ -11,6 +11,7 @@
 
 # In[2]:
 
+
 import mbuild as mb
 
 class CH2(mb.Compound):
@@ -39,6 +40,7 @@ monomer.visualize(show_ports=True)
 # Below, we use the same basic script, but now apply a rotation to the hydrogen atoms.  Since the hydrogens start 180&deg; apart and we know they should be ~109.5&deg; apart, each should be rotated half of the difference closer to each other around the y-axis. Note that the rotation angle is given in radians. Similarly, the ports should be rotated around the x-axis by the same amount so that atoms can be added in a realistic orientation. 
 
 # In[5]:
+
 
 import numpy as np
 import mbuild as mb
@@ -70,6 +72,7 @@ monomer.visualize(show_ports=True)
 
 # In[11]:
 
+
 class AlkanePolymer(mb.Compound):
     def __init__(self):
         super(AlkanePolymer, self).__init__()
@@ -92,6 +95,7 @@ polymer.visualize(show_ports=True)
 # We can also add a variable ```chain_length``` both to the for loop and ```init```  that will allow the length of the polymer to be adjusted when the class is instantiated.  
 
 # In[13]:
+
 
 import numpy as np
 import mbuild as mb
@@ -132,6 +136,7 @@ class AlkanePolymer(mb.Compound):
 
 # In[14]:
 
+
 polymer = AlkanePolymer(chain_length=10)
 polymer.visualize(show_ports=True)
 
@@ -142,6 +147,7 @@ polymer.visualize(show_ports=True)
 
 # In[15]:
 
+
 polymer = mb.Polymer(CH2(), 10, port_labels=('up', 'down'))
 polymer.visualize()
 
@@ -151,6 +157,7 @@ polymer.visualize()
 # A system of alkanes can be constructed by simply cloning the polymer constructed above and translating and/or rotating the alkanes in space. ```mBuild``` provides many routines that can be used to create different patterns, to which the polymers can be shifted.
 
 # In[23]:
+
 
 # create the polymer
 polymer = mb.Polymer(CH2(), 10, port_labels=('up', 'down'))
@@ -181,6 +188,7 @@ system.visualize()
 
 # In[27]:
 
+
 import random
 
 polymer = mb.Polymer(CH2(), 10, port_labels=('up', 'down'))
@@ -204,6 +212,7 @@ system.visualize()
 
 # In[29]:
 
+
 polymer = mb.Polymer(CH2(), 5, port_labels=('up', 'down'))
 system = mb.fill_box(polymer, n_compounds=100, overlap=1.5, box=[10,10,10]) 
 system.visualize()
@@ -216,6 +225,7 @@ system.visualize()
 # We also define a variable ```delta```, which will control the maximum amount of perturbation. Note that large values of ```delta``` may result in the chain overlapping itself, as ```mBuild``` does not currently include routines to exclude such overlaps.
 
 # In[33]:
+
 
 import mbuild as mb
 

@@ -14,6 +14,7 @@
 
 # In[ ]:
 
+
 import mbuild as mb
 
 from mbuild.examples import Alkane
@@ -37,12 +38,14 @@ class AlkylSilane(mb.Compound):
 
 # In[ ]:
 
+
 AlkylSilane(5).visualize()
 
 
 # Now let's create a substrate to which we can later attach our monomers:
 
 # In[ ]:
+
 
 import mbuild as mb
 from mbuild.lib.surfaces import Betacristobalite
@@ -58,6 +61,7 @@ tiled_surface = mb.TiledCompound(surface, n_tiles=(2, 1, 1))
 
 # In[ ]:
 
+
 from mbuild.lib.atoms import H
 alkylsilane = AlkylSilane(chain_length=10)
 hydrogen = H()
@@ -67,6 +71,7 @@ hydrogen = H()
 # 
 
 # In[ ]:
+
 
 pattern = mb.Grid2DPattern(8, 8)  # Evenly spaced, 2D grid of points.
 
@@ -81,17 +86,20 @@ chains, hydrogens = pattern.apply_to_compound(host=tiled_surface, guest=alkylsil
 
 # In[ ]:
 
+
 monolayer = mb.Compound([tiled_surface, chains, hydrogens])
 monolayer.visualize() # Warning: may be slow in IPython notebooks
 
 
 # In[ ]:
 
+
 # Save as .mol2 file
 monolayer.save('monolayer.mol2', overwrite=True)
 
 
 # In[ ]:
+
 
 
 
