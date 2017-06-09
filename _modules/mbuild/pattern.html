@@ -242,16 +242,26 @@
         <span class="k">return</span> <span class="n">compounds</span>
 
     <span class="k">def</span> <span class="nf">apply_to_compound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">guest</span><span class="p">,</span> <span class="n">guest_port_name</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                          <span class="n">backfill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backfill_port_name</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">):</span>
+                          <span class="n">backfill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backfill_port_name</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Attach copies of a guest Compound to Ports on a host Compound.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        guest</span>
-<span class="sd">        guest_port_name</span>
-<span class="sd">        host</span>
-<span class="sd">        backfill</span>
-<span class="sd">        backfill_port_name</span>
+<span class="sd">        guest : mb.Compound</span>
+<span class="sd">            The Compound prototype to be applied to the host Compound</span>
+<span class="sd">        guest_port_name : str, optional, default=&#39;down&#39;</span>
+<span class="sd">            The name of the port located on `guest` to attach to the host</span>
+<span class="sd">        host : mb.Compound, optional, default=None</span>
+<span class="sd">            A Compound with available ports to add copies of `guest` to</span>
+<span class="sd">        backfill : mb.Compound, optional, default=None</span>
+<span class="sd">            A Compound to add to the remaining available ports on `host`</span>
+<span class="sd">            after clones of `guest` have been added for each point in the</span>
+<span class="sd">            pattern</span>
+<span class="sd">        backfill_port_name : str, optional, default=&#39;up&#39;</span>
+<span class="sd">            The name of the port located on `backfill` to attach to the host</span>
+<span class="sd">        scale : bool, optional, default=True</span>
+<span class="sd">            Scale the points in the pattern to the lengths of the `host`&#39;s</span>
+<span class="sd">            `boundingbox` and shift them by the `boundingbox`&#39;s mins</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -261,7 +271,10 @@
         <span class="k">assert</span> <span class="n">n_ports</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;Not enough ports for pattern.&quot;</span>
         <span class="n">assert_port_exists</span><span class="p">(</span><span class="n">guest_port_name</span><span class="p">,</span> <span class="n">guest</span><span class="p">)</span>
         <span class="n">box</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">boundingbox</span>
-        <span class="n">pattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">*</span> <span class="n">box</span><span class="o">.</span><span class="n">lengths</span> <span class="o">+</span> <span class="n">box</span><span class="o">.</span><span class="n">mins</span>
+        <span class="k">if</span> <span class="n">scale</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">lengths</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">+=</span> <span class="n">box</span><span class="o">.</span><span class="n">mins</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">points</span>
         <span class="n">port_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_ports</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
         <span class="n">port_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">port_idx</span><span class="p">,</span> <span class="n">port</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">available_ports</span><span class="p">()):</span>

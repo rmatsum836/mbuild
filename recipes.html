@@ -5007,17 +5007,39 @@ returned to the user.</p>
 
 <dl class="method">
 <dt id="mbuild.pattern.DiskPattern.apply_to_compound">
-<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name='down'</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name='up'</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.DiskPattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name='down'</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name='up'</em>, <em>scale=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.DiskPattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach copies of a guest Compound to Ports on a host Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>guest</strong></p>
-<p><strong>guest_port_name</strong></p>
-<p><strong>host</strong></p>
-<p><strong>backfill</strong></p>
-<p class="last"><strong>backfill_port_name</strong></p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>guest</strong> : mb.Compound</p>
+<blockquote>
+<div><p>The Compound prototype to be applied to the host Compound</p>
+</div></blockquote>
+<p><strong>guest_port_name</strong> : str, optional, default=&#8217;down&#8217;</p>
+<blockquote>
+<div><p>The name of the port located on <cite>guest</cite> to attach to the host</p>
+</div></blockquote>
+<p><strong>host</strong> : mb.Compound, optional, default=None</p>
+<blockquote>
+<div><p>A Compound with available ports to add copies of <cite>guest</cite> to</p>
+</div></blockquote>
+<p><strong>backfill</strong> : mb.Compound, optional, default=None</p>
+<blockquote>
+<div><p>A Compound to add to the remaining available ports on <cite>host</cite>
+after clones of <cite>guest</cite> have been added for each point in the
+pattern</p>
+</div></blockquote>
+<p><strong>backfill_port_name</strong> : str, optional, default=&#8217;up&#8217;</p>
+<blockquote>
+<div><p>The name of the port located on <cite>backfill</cite> to attach to the host</p>
+</div></blockquote>
+<p><strong>scale</strong> : bool, optional, default=True</p>
+<blockquote class="last">
+<div><p>Scale the points in the pattern to the lengths of the <cite>host</cite>&#8216;s
+<cite>boundingbox</cite> and shift them by the <cite>boundingbox</cite>&#8216;s mins</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -5070,17 +5092,39 @@ If np.ndarray, scale each direction independently.</p>
 
 <dl class="method">
 <dt id="mbuild.pattern.SpherePattern.apply_to_compound">
-<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name='down'</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name='up'</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.SpherePattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name='down'</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name='up'</em>, <em>scale=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.SpherePattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach copies of a guest Compound to Ports on a host Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>guest</strong></p>
-<p><strong>guest_port_name</strong></p>
-<p><strong>host</strong></p>
-<p><strong>backfill</strong></p>
-<p class="last"><strong>backfill_port_name</strong></p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>guest</strong> : mb.Compound</p>
+<blockquote>
+<div><p>The Compound prototype to be applied to the host Compound</p>
+</div></blockquote>
+<p><strong>guest_port_name</strong> : str, optional, default=&#8217;down&#8217;</p>
+<blockquote>
+<div><p>The name of the port located on <cite>guest</cite> to attach to the host</p>
+</div></blockquote>
+<p><strong>host</strong> : mb.Compound, optional, default=None</p>
+<blockquote>
+<div><p>A Compound with available ports to add copies of <cite>guest</cite> to</p>
+</div></blockquote>
+<p><strong>backfill</strong> : mb.Compound, optional, default=None</p>
+<blockquote>
+<div><p>A Compound to add to the remaining available ports on <cite>host</cite>
+after clones of <cite>guest</cite> have been added for each point in the
+pattern</p>
+</div></blockquote>
+<p><strong>backfill_port_name</strong> : str, optional, default=&#8217;up&#8217;</p>
+<blockquote>
+<div><p>The name of the port located on <cite>backfill</cite> to attach to the host</p>
+</div></blockquote>
+<p><strong>scale</strong> : bool, optional, default=True</p>
+<blockquote class="last">
+<div><p>Scale the points in the pattern to the lengths of the <cite>host</cite>&#8216;s
+<cite>boundingbox</cite> and shift them by the <cite>boundingbox</cite>&#8216;s mins</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
