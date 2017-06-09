@@ -821,26 +821,46 @@
 <span class="sd">    ----------</span>
 <span class="sd">    compound : mb.Compound</span>
 <span class="sd">        The compound to move.</span>
-<span class="sd">    new_origin : mb.Compound or np.ndarray, optional, default=[0.0, 0.0, 0.0]</span>
+<span class="sd">    new_origin : mb.Compound or list-like, optional, default=[0.0, 0.0, 0.0]</span>
 <span class="sd">        Where to place the new origin of the coordinate system.</span>
-<span class="sd">    point_on_x_axis : mb.Compound or np.ndarray, optional, default=[1.0, 0.0, 0.0]</span>
+<span class="sd">    point_on_x_axis : mb.Compound or list-like, optional, default=[1.0, 0.0, 0.0]</span>
 <span class="sd">        A point on the new x-axis.</span>
-<span class="sd">    point_on_xy_plane : mb.Compound or np.ndarray, optional, default=[1.0, 0.0, 0.0]</span>
+<span class="sd">    point_on_xy_plane : mb.Compound, or list-like, optional, default=[1.0, 0.0, 0.0]</span>
 <span class="sd">        A point on the new xy-plane.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">mbuild</span> <span class="k">as</span> <span class="nn">mb</span>
+
     <span class="k">if</span> <span class="n">new_origin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">new_origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_origin</span><span class="p">,</span> <span class="n">mb</span><span class="o">.</span><span class="n">Compound</span><span class="p">):</span>
         <span class="n">new_origin</span> <span class="o">=</span> <span class="n">new_origin</span><span class="o">.</span><span class="n">pos</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_origin</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">new_origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">new_origin</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;x_axis_transform, y_axis_transform, and z_axis_transform only accept&#39;</span>
+                        <span class="s1">&#39; np.ndarrays, mb.Compounds, lists, or None of size 3 for the new_origin&#39;</span>
+                        <span class="s1">&#39; parameter. User passed type: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">new_origin</span><span class="p">)))</span>
     <span class="k">if</span> <span class="n">point_on_x_axis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">point_on_x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">point_on_x_axis</span><span class="p">,</span> <span class="n">mb</span><span class="o">.</span><span class="n">Compound</span><span class="p">):</span>
         <span class="n">point_on_x_axis</span> <span class="o">=</span> <span class="n">point_on_x_axis</span><span class="o">.</span><span class="n">pos</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">point_on_x_axis</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">point_on_x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">point_on_x_axis</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;x_axis_transform, y_axis_transform, and z_axis_transform only accept&#39;</span>
+                         <span class="s1">&#39; np.ndarrays, mb.Compounds, lists, or None of size 3 for the&#39;</span>
+                         <span class="s1">&#39; point_on_x_axis parameter. User passed type: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">point_on_x_axis</span><span class="p">)))</span>    
     <span class="k">if</span> <span class="n">point_on_xy_plane</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">point_on_xy_plane</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">point_on_xy_plane</span><span class="p">,</span> <span class="n">mb</span><span class="o">.</span><span class="n">Compound</span><span class="p">):</span>
         <span class="n">point_on_xy_plane</span> <span class="o">=</span> <span class="n">point_on_xy_plane</span><span class="o">.</span><span class="n">pos</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">point_on_xy_plane</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">point_on_xy_plane</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">point_on_xy_plane</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;x_axis_transform, y_axis_transform, and z_axis_transform only accept&#39;</span>
+                          <span class="s1">&#39; np.ndarrays, mb.Compounds, lists, or None of size 3 for the&#39;</span>
+                          <span class="s1">&#39; point_on_xy_plane parameter. User passed type: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">point_on_xy_plane</span><span class="p">)))</span>
 
     <span class="n">atom_positions</span> <span class="o">=</span> <span class="n">compound</span><span class="o">.</span><span class="n">xyz_with_ports</span>
     <span class="n">transform</span> <span class="o">=</span> <span class="n">AxisTransform</span><span class="p">(</span><span class="n">new_origin</span><span class="o">=</span><span class="n">new_origin</span><span class="p">,</span>
