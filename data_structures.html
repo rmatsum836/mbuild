@@ -1090,7 +1090,7 @@ particle with a matching rigid_id if specified</p>
 
 <dl class="method">
 <dt id="mbuild.compound.Compound.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em>, <em>show_ports=False</em>, <em>forcefield_name=None</em>, <em>forcefield_files=None</em>, <em>box=None</em>, <em>overwrite=False</em>, <em>residues=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/compound.html#Compound.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.compound.Compound.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em>, <em>show_ports=False</em>, <em>forcefield_name=None</em>, <em>forcefield_files=None</em>, <em>box=None</em>, <em>overwrite=False</em>, <em>residues=None</em>, <em>references_file=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/compound.html#Compound.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.compound.Compound.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the Compound to a file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1126,6 +1126,16 @@ overlapping atoms.</p>
 <p><strong>overwrite</strong> : bool, optional, default=False</p>
 <blockquote>
 <div><p>Overwrite if the filename already exists</p>
+</div></blockquote>
+<p><strong>residues</strong> : str of list of str</p>
+<blockquote>
+<div><p>Labels of residues in the Compound. Residues are assigned by
+checking against Compound.name.</p>
+</div></blockquote>
+<p><strong>references_file</strong> : str, optional, default=None</p>
+<blockquote>
+<div><p>Specify a filename to write references for the forcefield that is
+to be applied. References are written in BiBTeX format.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -1230,6 +1240,11 @@ for converting mass values to reduced units.</p>
 <blockquote>
 <div><p>Title/name of the ParmEd Structure</p>
 </div></blockquote>
+<p><strong>residues</strong> : str of list of str</p>
+<blockquote>
+<div><p>Labels of residues in the Compound. Residues are assigned by
+checking against Compound.name.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">parmed.structure.Structure</p>
@@ -1265,9 +1280,10 @@ for converting mass values to reduced units.</p>
 <blockquote>
 <div><p>Chain types to add to the topology</p>
 </div></blockquote>
-<p><strong>residues</strong> : mb.Compound or list of mb.Compound</p>
+<p><strong>residues</strong> : str of list of str</p>
 <blockquote>
-<div><p>Residue types to add to the topology</p>
+<div><p>Labels of residues in the Compound. Residues are assigned by
+checking against Compound.name.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -2224,7 +2240,7 @@ particle with a matching rigid_id if specified</p>
 
 <dl class="method">
 <dt id="mbuild.port.Port.save">
-<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em>, <em>show_ports=False</em>, <em>forcefield_name=None</em>, <em>forcefield_files=None</em>, <em>box=None</em>, <em>overwrite=False</em>, <em>residues=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.port.Port.save" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em>, <em>show_ports=False</em>, <em>forcefield_name=None</em>, <em>forcefield_files=None</em>, <em>box=None</em>, <em>overwrite=False</em>, <em>residues=None</em>, <em>references_file=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.port.Port.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the Compound to a file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2260,6 +2276,16 @@ overlapping atoms.</p>
 <p><strong>overwrite</strong> : bool, optional, default=False</p>
 <blockquote>
 <div><p>Overwrite if the filename already exists</p>
+</div></blockquote>
+<p><strong>residues</strong> : str of list of str</p>
+<blockquote>
+<div><p>Labels of residues in the Compound. Residues are assigned by
+checking against Compound.name.</p>
+</div></blockquote>
+<p><strong>references_file</strong> : str, optional, default=None</p>
+<blockquote>
+<div><p>Specify a filename to write references for the forcefield that is
+to be applied. References are written in BiBTeX format.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -2364,6 +2390,11 @@ for converting mass values to reduced units.</p>
 <blockquote>
 <div><p>Title/name of the ParmEd Structure</p>
 </div></blockquote>
+<p><strong>residues</strong> : str of list of str</p>
+<blockquote>
+<div><p>Labels of residues in the Compound. Residues are assigned by
+checking against Compound.name.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">parmed.structure.Structure</p>
@@ -2399,9 +2430,10 @@ for converting mass values to reduced units.</p>
 <blockquote>
 <div><p>Chain types to add to the topology</p>
 </div></blockquote>
-<p><strong>residues</strong> : mb.Compound or list of mb.Compound</p>
+<p><strong>residues</strong> : str of list of str</p>
 <blockquote>
-<div><p>Residue types to add to the topology</p>
+<div><p>Labels of residues in the Compound. Residues are assigned by
+checking against Compound.name.</p>
 </div></blockquote>
 </td>
 </tr>
