@@ -229,7 +229,7 @@ surface will be filled with <cite>chain</cite>.</p>
 <dt>Note:</dt>
 <dd>This does not necessarily add the part to self.children but may
 instead be used to add a reference to the part to self.labels. See
-&#8216;containment&#8217; argument.</dd>
+‘containment’ argument.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -423,21 +423,21 @@ hierarchy) then contains_rigid will return False.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>The private variable &#8216;_check_if_contains_rigid_bodies&#8217; is used to help
-cache the status of &#8216;contains_rigid&#8217;. If &#8216;_check_if_contains_rigid_bodies&#8217;
+<p>The private variable ‘_check_if_contains_rigid_bodies’ is used to help
+cache the status of ‘contains_rigid’. If ‘_check_if_contains_rigid_bodies’
 is False, then the rigid body containment of the Compound has not changed,
 and the particle tree is not traversed, boosting performance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mbuild.recipes.monolayer.Monolayer.energy_minimization">
-<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm='cg'</em>, <em>forcefield='UFF'</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.monolayer.Monolayer.energy_minimization" title="Permalink to this definition">¶</a></dt>
+<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm=’cg’</em>, <em>forcefield=’UFF’</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.monolayer.Monolayer.energy_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform an energy minimization on a Compound</p>
 <p>Utilizes Open Babel (<a class="reference external" href="http://openbabel.org/docs/dev/">http://openbabel.org/docs/dev/</a>) to perform an
 energy minimization/geometry optimization on a Compound by applying
 a generic force field.</p>
 <p>This function is primarily intended to be used on smaller components,
-with sizes on the order of 10&#8217;s to 100&#8217;s of particles, as the energy
+with sizes on the order of 10’s to 100’s of particles, as the energy
 minimization scales poorly with the number of particles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -447,16 +447,16 @@ minimization scales poorly with the number of particles.</p>
 <blockquote>
 <div><p>The number of optimization iterations</p>
 </div></blockquote>
-<p><strong>algorithm</strong> : str, optional, default=&#8217;cg&#8217;</p>
+<p><strong>algorithm</strong> : str, optional, default=’cg’</p>
 <blockquote>
-<div><p>The energy minimization algorithm.  Valid options are &#8216;steep&#8217;,
-&#8216;cg&#8217;, and &#8216;md&#8217;, corresponding to steepest descent, conjugate
+<div><p>The energy minimization algorithm.  Valid options are ‘steep’,
+‘cg’, and ‘md’, corresponding to steepest descent, conjugate
 gradient, and equilibrium molecular dynamics respectively.</p>
 </div></blockquote>
-<p><strong>forcefield</strong> : str, optional, default=&#8217;UFF&#8217;</p>
+<p><strong>forcefield</strong> : str, optional, default=’UFF’</p>
 <blockquote class="last">
 <div><p>The generic force field to apply to the Compound for minimization.
-Valid options are &#8216;MMFF94&#8217;, &#8216;MMFF94s&#8217;, &#8216;&#8217;UFF&#8217;, &#8216;GAFF&#8217;, and &#8216;Ghemical&#8217;.
+Valid options are ‘MMFF94’, ‘MMFF94s’, ”UFF’, ‘GAFF’, and ‘Ghemical’.
 Please refer to the Open Babel documentation (<a class="reference external" href="http://open-babel">http://open-babel</a>.
 readthedocs.io/en/latest/Forcefields/Overview.html) when considering
 your choice of force field.</p>
@@ -469,9 +469,9 @@ your choice of force field.</p>
 <table class="docutils citation" frame="void" id="r23" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R23]</a></td><td>O&#8217;Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
-Vandermeersch, T.; Hutchison, G.R. &#8220;Open Babel: An open
-chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[R23]</a></td><td>O’Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
+Vandermeersch, T.; Hutchison, G.R. “Open Babel: An open
+chemical toolbox.” (2011) J. Cheminf. 3, 33</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r24" rules="none">
@@ -481,62 +481,62 @@ chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
 Month Year)</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94&#8217; force field please also cite the following:
-.. [R25] T.A. Halgren, &#8220;Merck molecular force field. I. Basis, form,</p>
+<p>If using the ‘MMFF94’ force field please also cite the following:
+.. [R25] T.A. Halgren, “Merck molecular force field. I. Basis, form,</p>
 <blockquote>
-<div>scope, parameterization, and performance of MMFF94.&#8221; (1996)
+<div>scope, parameterization, and performance of MMFF94.” (1996)
 J. Comput. Chem. 17, 490-519</div></blockquote>
 <table class="docutils citation" frame="void" id="r26" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[R26]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. II. MMFF94 van der
+<tr><td class="label"><a class="fn-backref" href="#id4">[R26]</a></td><td>T.A. Halgren, “Merck molecular force field. II. MMFF94 van der
 Waals and electrostatic parameters for intermolecular
-interactions.&#8221; (1996) J. Comput. Chem. 17, 520-552</td></tr>
+interactions.” (1996) J. Comput. Chem. 17, 520-552</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[R27]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. III. Molecular
-geometries and vibrational frequencies for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id5">[R27]</a></td><td>T.A. Halgren, “Merck molecular force field. III. Molecular
+geometries and vibrational frequencies for MMFF94.” (1996)
 J. Comput. Chem. 17, 553-586</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r28" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[R28]</a></td><td>T.A. Halgren and R.B. Nachbar, &#8220;Merck molecular force field.
-IV. Conformational energies and geometries for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id6">[R28]</a></td><td>T.A. Halgren and R.B. Nachbar, “Merck molecular force field.
+IV. Conformational energies and geometries for MMFF94.” (1996)
 J. Comput. Chem. 17, 587-615</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r29" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[R29]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. V. Extension of
+<tr><td class="label"><a class="fn-backref" href="#id7">[R29]</a></td><td>T.A. Halgren, “Merck molecular force field. V. Extension of
 MMFF94 using experimental data, additional computational data,
-and empirical rules.&#8221; (1996) J. Comput. Chem. 17, 616-641</td></tr>
+and empirical rules.” (1996) J. Comput. Chem. 17, 616-641</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94s&#8217; force field please cite the above along with:
-.. [R30] T.A. Halgren, &#8220;MMFF VI. MMFF94s option for energy minimization</p>
+<p>If using the ‘MMFF94s’ force field please cite the above along with:
+.. [R30] T.A. Halgren, “MMFF VI. MMFF94s option for energy minimization</p>
 <blockquote>
-<div>studies.&#8221; (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
-<p>If using the &#8216;UFF&#8217; force field please cite the following:
+<div>studies.” (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
+<p>If using the ‘UFF’ force field please cite the following:
 .. [R25] Rappe, A.K., Casewit, C.J., Colwell, K.S., Goddard, W.A. III,</p>
 <blockquote>
-<div>Skiff, W.M. &#8220;UFF, a full periodic table force field for
-molecular mechanics and molecular dynamics simulations.&#8221; (1992)
+<div>Skiff, W.M. “UFF, a full periodic table force field for
+molecular mechanics and molecular dynamics simulations.” (1992)
 J. Am. Chem. Soc. 114, 10024-10039</div></blockquote>
-<p>If using the &#8216;GAFF&#8217; force field please cite the following:
+<p>If using the ‘GAFF’ force field please cite the following:
 .. [R25] Wang, J., Wolf, R.M., Caldwell, J.W., Kollman, P.A., Case, D.A.</p>
 <blockquote>
-<div>&#8220;Development and testing of a general AMBER force field&#8221; (2004)
+<div>“Development and testing of a general AMBER force field” (2004)
 J. Comput. Chem. 25, 1157-1174</div></blockquote>
-<p>If using the &#8216;Ghemical&#8217; force field please cite the following:
-.. [R25] T. Hassinen and M. Perakyla, &#8220;New energy terms for reduced</p>
+<p>If using the ‘Ghemical’ force field please cite the following:
+.. [R25] T. Hassinen and M. Perakyla, “New energy terms for reduced</p>
 <blockquote>
-<div>protein models implemented in an off-lattice force field&#8221; (2001)
+<div>protein models implemented in an off-lattice force field” (2001)
 J. Comput. Chem. 22, 1229-1242</div></blockquote>
 </dd></dl>
 
@@ -845,7 +845,7 @@ image convention</p>
 </div></blockquote>
 <p><strong>dmax</strong> : float</p>
 <blockquote>
-<div><p>Maximum distance from &#8216;compound&#8217; to look for Particles</p>
+<div><p>Maximum distance from ‘compound’ to look for Particles</p>
 </div></blockquote>
 <p><strong>max_particles</strong> : int, optional, default=20</p>
 <blockquote>
@@ -966,14 +966,14 @@ particle with a matching rigid_id if specified</p>
 <dl class="attribute">
 <dt id="mbuild.recipes.monolayer.Monolayer.root">
 <code class="descname">root</code><a class="headerlink" href="#mbuild.recipes.monolayer.Monolayer.root" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Compound at the top of self&#8217;s hierarchy.</p>
+<dd><p>The Compound at the top of self’s hierarchy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mb.Compound</p>
 <blockquote class="last">
-<div><p>The Compound at the top of self&#8217;s hierarchy</p>
+<div><p>The Compound at the top of self’s hierarchy</p>
 </div></blockquote>
 </td>
 </tr>
@@ -1015,7 +1015,7 @@ particle with a matching rigid_id if specified</p>
 <blockquote>
 <div><p>Filesystem path in which to save the trajectory. The extension or
 prefix will be parsed and control the format. Supported
-extensions are: &#8216;hoomdxml&#8217;, &#8216;gsd&#8217;, &#8216;gro&#8217;, &#8216;top&#8217;, &#8216;lammps&#8217;, &#8216;lmp&#8217;</p>
+extensions are: ‘hoomdxml’, ‘gsd’, ‘gro’, ‘top’, ‘lammps’, ‘lmp’</p>
 </div></blockquote>
 <p><strong>show_ports</strong> : bool, optional, default=False</p>
 <blockquote>
@@ -1029,12 +1029,12 @@ by the <cite>foyer</cite> package.</p>
 <p><strong>forcefield_name</strong> : str, optional, default=None</p>
 <blockquote>
 <div><p>Apply a named forcefield to the output file using the <cite>foyer</cite>
-package, e.g. &#8216;oplsaa&#8217;. Forcefields listed here:
+package, e.g. ‘oplsaa’. Forcefields listed here:
 <a class="reference external" href="https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields">https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields</a></p>
 </div></blockquote>
 <p><strong>box</strong> : mb.Box, optional, default=self.boundingbox (with buffer)</p>
 <blockquote>
-<div><p>Box information to be written to the output file. If &#8216;None&#8217;, a
+<div><p>Box information to be written to the output file. If ‘None’, a
 bounding box is used with 0.25nm buffers at each face to avoid
 overlapping atoms.</p>
 </div></blockquote>
@@ -1145,7 +1145,7 @@ for converting mass values to reduced units.</p>
 
 <dl class="method">
 <dt id="mbuild.recipes.monolayer.Monolayer.to_parmed">
-<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=''</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.monolayer.Monolayer.to_parmed" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=”</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.monolayer.Monolayer.to_parmed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ParmEd Structure from a Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1342,7 +1342,7 @@ the orientation of Ports with respect to the molecule as a whole.</p>
 <h2>Polymer<a class="headerlink" href="#polymer" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="mbuild.recipes.polymer.Polymer">
-<em class="property">class </em><code class="descclassname">mbuild.recipes.polymer.</code><code class="descname">Polymer</code><span class="sig-paren">(</span><em>monomers</em>, <em>n</em>, <em>sequence='A'</em>, <em>port_labels=('up'</em>, <em>'down')</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/recipes/polymer.html#Polymer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.recipes.polymer.Polymer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mbuild.recipes.polymer.</code><code class="descname">Polymer</code><span class="sig-paren">(</span><em>monomers</em>, <em>n</em>, <em>sequence=’A’</em>, <em>port_labels=(‘up’</em>, <em>’down’)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/recipes/polymer.html#Polymer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.recipes.polymer.Polymer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect one or more components in a specified sequence.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1356,13 +1356,13 @@ the orientation of Ports with respect to the molecule as a whole.</p>
 <blockquote>
 <div><p>The number of times to replicate the sequence.</p>
 </div></blockquote>
-<p><strong>sequence</strong> : str, optional, default=&#8217;A&#8217;</p>
+<p><strong>sequence</strong> : str, optional, default=’A’</p>
 <blockquote>
 <div><p>A string of characters where each unique character represents one
 repetition of a monomer. Characters in <cite>sequence</cite> are assigned to
 monomers in the order assigned by the built-in <cite>sorted()</cite>.</p>
 </div></blockquote>
-<p><strong>port_labels</strong> : 2-tuple of strs, optional, default=(&#8216;up&#8217;, &#8216;down&#8217;)</p>
+<p><strong>port_labels</strong> : 2-tuple of strs, optional, default=(‘up’, ‘down’)</p>
 <blockquote class="last">
 <div><p>The names of the two ports to use to connect copies of proto.</p>
 </div></blockquote>
@@ -1378,7 +1378,7 @@ monomers in the order assigned by the built-in <cite>sorted()</cite>.</p>
 <dt>Note:</dt>
 <dd>This does not necessarily add the part to self.children but may
 instead be used to add a reference to the part to self.labels. See
-&#8216;containment&#8217; argument.</dd>
+‘containment’ argument.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1572,21 +1572,21 @@ hierarchy) then contains_rigid will return False.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>The private variable &#8216;_check_if_contains_rigid_bodies&#8217; is used to help
-cache the status of &#8216;contains_rigid&#8217;. If &#8216;_check_if_contains_rigid_bodies&#8217;
+<p>The private variable ‘_check_if_contains_rigid_bodies’ is used to help
+cache the status of ‘contains_rigid’. If ‘_check_if_contains_rigid_bodies’
 is False, then the rigid body containment of the Compound has not changed,
 and the particle tree is not traversed, boosting performance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mbuild.recipes.polymer.Polymer.energy_minimization">
-<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm='cg'</em>, <em>forcefield='UFF'</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.polymer.Polymer.energy_minimization" title="Permalink to this definition">¶</a></dt>
+<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm=’cg’</em>, <em>forcefield=’UFF’</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.polymer.Polymer.energy_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform an energy minimization on a Compound</p>
 <p>Utilizes Open Babel (<a class="reference external" href="http://openbabel.org/docs/dev/">http://openbabel.org/docs/dev/</a>) to perform an
 energy minimization/geometry optimization on a Compound by applying
 a generic force field.</p>
 <p>This function is primarily intended to be used on smaller components,
-with sizes on the order of 10&#8217;s to 100&#8217;s of particles, as the energy
+with sizes on the order of 10’s to 100’s of particles, as the energy
 minimization scales poorly with the number of particles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1596,16 +1596,16 @@ minimization scales poorly with the number of particles.</p>
 <blockquote>
 <div><p>The number of optimization iterations</p>
 </div></blockquote>
-<p><strong>algorithm</strong> : str, optional, default=&#8217;cg&#8217;</p>
+<p><strong>algorithm</strong> : str, optional, default=’cg’</p>
 <blockquote>
-<div><p>The energy minimization algorithm.  Valid options are &#8216;steep&#8217;,
-&#8216;cg&#8217;, and &#8216;md&#8217;, corresponding to steepest descent, conjugate
+<div><p>The energy minimization algorithm.  Valid options are ‘steep’,
+‘cg’, and ‘md’, corresponding to steepest descent, conjugate
 gradient, and equilibrium molecular dynamics respectively.</p>
 </div></blockquote>
-<p><strong>forcefield</strong> : str, optional, default=&#8217;UFF&#8217;</p>
+<p><strong>forcefield</strong> : str, optional, default=’UFF’</p>
 <blockquote class="last">
 <div><p>The generic force field to apply to the Compound for minimization.
-Valid options are &#8216;MMFF94&#8217;, &#8216;MMFF94s&#8217;, &#8216;&#8217;UFF&#8217;, &#8216;GAFF&#8217;, and &#8216;Ghemical&#8217;.
+Valid options are ‘MMFF94’, ‘MMFF94s’, ”UFF’, ‘GAFF’, and ‘Ghemical’.
 Please refer to the Open Babel documentation (<a class="reference external" href="http://open-babel">http://open-babel</a>.
 readthedocs.io/en/latest/Forcefields/Overview.html) when considering
 your choice of force field.</p>
@@ -1618,9 +1618,9 @@ your choice of force field.</p>
 <table class="docutils citation" frame="void" id="r34" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[R34]</a></td><td>O&#8217;Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
-Vandermeersch, T.; Hutchison, G.R. &#8220;Open Babel: An open
-chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[R34]</a></td><td>O’Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
+Vandermeersch, T.; Hutchison, G.R. “Open Babel: An open
+chemical toolbox.” (2011) J. Cheminf. 3, 33</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r35" rules="none">
@@ -1630,62 +1630,62 @@ chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
 Month Year)</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94&#8217; force field please also cite the following:
-.. [R36] T.A. Halgren, &#8220;Merck molecular force field. I. Basis, form,</p>
+<p>If using the ‘MMFF94’ force field please also cite the following:
+.. [R36] T.A. Halgren, “Merck molecular force field. I. Basis, form,</p>
 <blockquote>
-<div>scope, parameterization, and performance of MMFF94.&#8221; (1996)
+<div>scope, parameterization, and performance of MMFF94.” (1996)
 J. Comput. Chem. 17, 490-519</div></blockquote>
 <table class="docutils citation" frame="void" id="r37" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[R37]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. II. MMFF94 van der
+<tr><td class="label"><a class="fn-backref" href="#id15">[R37]</a></td><td>T.A. Halgren, “Merck molecular force field. II. MMFF94 van der
 Waals and electrostatic parameters for intermolecular
-interactions.&#8221; (1996) J. Comput. Chem. 17, 520-552</td></tr>
+interactions.” (1996) J. Comput. Chem. 17, 520-552</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r38" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id16">[R38]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. III. Molecular
-geometries and vibrational frequencies for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id16">[R38]</a></td><td>T.A. Halgren, “Merck molecular force field. III. Molecular
+geometries and vibrational frequencies for MMFF94.” (1996)
 J. Comput. Chem. 17, 553-586</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r39" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id17">[R39]</a></td><td>T.A. Halgren and R.B. Nachbar, &#8220;Merck molecular force field.
-IV. Conformational energies and geometries for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id17">[R39]</a></td><td>T.A. Halgren and R.B. Nachbar, “Merck molecular force field.
+IV. Conformational energies and geometries for MMFF94.” (1996)
 J. Comput. Chem. 17, 587-615</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r40" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id18">[R40]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. V. Extension of
+<tr><td class="label"><a class="fn-backref" href="#id18">[R40]</a></td><td>T.A. Halgren, “Merck molecular force field. V. Extension of
 MMFF94 using experimental data, additional computational data,
-and empirical rules.&#8221; (1996) J. Comput. Chem. 17, 616-641</td></tr>
+and empirical rules.” (1996) J. Comput. Chem. 17, 616-641</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94s&#8217; force field please cite the above along with:
-.. [R41] T.A. Halgren, &#8220;MMFF VI. MMFF94s option for energy minimization</p>
+<p>If using the ‘MMFF94s’ force field please cite the above along with:
+.. [R41] T.A. Halgren, “MMFF VI. MMFF94s option for energy minimization</p>
 <blockquote>
-<div>studies.&#8221; (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
-<p>If using the &#8216;UFF&#8217; force field please cite the following:
+<div>studies.” (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
+<p>If using the ‘UFF’ force field please cite the following:
 .. [R36] Rappe, A.K., Casewit, C.J., Colwell, K.S., Goddard, W.A. III,</p>
 <blockquote>
-<div>Skiff, W.M. &#8220;UFF, a full periodic table force field for
-molecular mechanics and molecular dynamics simulations.&#8221; (1992)
+<div>Skiff, W.M. “UFF, a full periodic table force field for
+molecular mechanics and molecular dynamics simulations.” (1992)
 J. Am. Chem. Soc. 114, 10024-10039</div></blockquote>
-<p>If using the &#8216;GAFF&#8217; force field please cite the following:
+<p>If using the ‘GAFF’ force field please cite the following:
 .. [R36] Wang, J., Wolf, R.M., Caldwell, J.W., Kollman, P.A., Case, D.A.</p>
 <blockquote>
-<div>&#8220;Development and testing of a general AMBER force field&#8221; (2004)
+<div>“Development and testing of a general AMBER force field” (2004)
 J. Comput. Chem. 25, 1157-1174</div></blockquote>
-<p>If using the &#8216;Ghemical&#8217; force field please cite the following:
-.. [R36] T. Hassinen and M. Perakyla, &#8220;New energy terms for reduced</p>
+<p>If using the ‘Ghemical’ force field please cite the following:
+.. [R36] T. Hassinen and M. Perakyla, “New energy terms for reduced</p>
 <blockquote>
-<div>protein models implemented in an off-lattice force field&#8221; (2001)
+<div>protein models implemented in an off-lattice force field” (2001)
 J. Comput. Chem. 22, 1229-1242</div></blockquote>
 </dd></dl>
 
@@ -1994,7 +1994,7 @@ image convention</p>
 </div></blockquote>
 <p><strong>dmax</strong> : float</p>
 <blockquote>
-<div><p>Maximum distance from &#8216;compound&#8217; to look for Particles</p>
+<div><p>Maximum distance from ‘compound’ to look for Particles</p>
 </div></blockquote>
 <p><strong>max_particles</strong> : int, optional, default=20</p>
 <blockquote>
@@ -2115,14 +2115,14 @@ particle with a matching rigid_id if specified</p>
 <dl class="attribute">
 <dt id="mbuild.recipes.polymer.Polymer.root">
 <code class="descname">root</code><a class="headerlink" href="#mbuild.recipes.polymer.Polymer.root" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Compound at the top of self&#8217;s hierarchy.</p>
+<dd><p>The Compound at the top of self’s hierarchy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mb.Compound</p>
 <blockquote class="last">
-<div><p>The Compound at the top of self&#8217;s hierarchy</p>
+<div><p>The Compound at the top of self’s hierarchy</p>
 </div></blockquote>
 </td>
 </tr>
@@ -2164,7 +2164,7 @@ particle with a matching rigid_id if specified</p>
 <blockquote>
 <div><p>Filesystem path in which to save the trajectory. The extension or
 prefix will be parsed and control the format. Supported
-extensions are: &#8216;hoomdxml&#8217;, &#8216;gsd&#8217;, &#8216;gro&#8217;, &#8216;top&#8217;, &#8216;lammps&#8217;, &#8216;lmp&#8217;</p>
+extensions are: ‘hoomdxml’, ‘gsd’, ‘gro’, ‘top’, ‘lammps’, ‘lmp’</p>
 </div></blockquote>
 <p><strong>show_ports</strong> : bool, optional, default=False</p>
 <blockquote>
@@ -2178,12 +2178,12 @@ by the <cite>foyer</cite> package.</p>
 <p><strong>forcefield_name</strong> : str, optional, default=None</p>
 <blockquote>
 <div><p>Apply a named forcefield to the output file using the <cite>foyer</cite>
-package, e.g. &#8216;oplsaa&#8217;. Forcefields listed here:
+package, e.g. ‘oplsaa’. Forcefields listed here:
 <a class="reference external" href="https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields">https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields</a></p>
 </div></blockquote>
 <p><strong>box</strong> : mb.Box, optional, default=self.boundingbox (with buffer)</p>
 <blockquote>
-<div><p>Box information to be written to the output file. If &#8216;None&#8217;, a
+<div><p>Box information to be written to the output file. If ‘None’, a
 bounding box is used with 0.25nm buffers at each face to avoid
 overlapping atoms.</p>
 </div></blockquote>
@@ -2294,7 +2294,7 @@ for converting mass values to reduced units.</p>
 
 <dl class="method">
 <dt id="mbuild.recipes.polymer.Polymer.to_parmed">
-<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=''</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.polymer.Polymer.to_parmed" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=”</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.polymer.Polymer.to_parmed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ParmEd Structure from a Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2523,7 +2523,7 @@ conditions.</p>
 <dt>Note:</dt>
 <dd>This does not necessarily add the part to self.children but may
 instead be used to add a reference to the part to self.labels. See
-&#8216;containment&#8217; argument.</dd>
+‘containment’ argument.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2717,21 +2717,21 @@ hierarchy) then contains_rigid will return False.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>The private variable &#8216;_check_if_contains_rigid_bodies&#8217; is used to help
-cache the status of &#8216;contains_rigid&#8217;. If &#8216;_check_if_contains_rigid_bodies&#8217;
+<p>The private variable ‘_check_if_contains_rigid_bodies’ is used to help
+cache the status of ‘contains_rigid’. If ‘_check_if_contains_rigid_bodies’
 is False, then the rigid body containment of the Compound has not changed,
 and the particle tree is not traversed, boosting performance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mbuild.recipes.tiled_compound.TiledCompound.energy_minimization">
-<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm='cg'</em>, <em>forcefield='UFF'</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.tiled_compound.TiledCompound.energy_minimization" title="Permalink to this definition">¶</a></dt>
+<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm=’cg’</em>, <em>forcefield=’UFF’</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.tiled_compound.TiledCompound.energy_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform an energy minimization on a Compound</p>
 <p>Utilizes Open Babel (<a class="reference external" href="http://openbabel.org/docs/dev/">http://openbabel.org/docs/dev/</a>) to perform an
 energy minimization/geometry optimization on a Compound by applying
 a generic force field.</p>
 <p>This function is primarily intended to be used on smaller components,
-with sizes on the order of 10&#8217;s to 100&#8217;s of particles, as the energy
+with sizes on the order of 10’s to 100’s of particles, as the energy
 minimization scales poorly with the number of particles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2741,16 +2741,16 @@ minimization scales poorly with the number of particles.</p>
 <blockquote>
 <div><p>The number of optimization iterations</p>
 </div></blockquote>
-<p><strong>algorithm</strong> : str, optional, default=&#8217;cg&#8217;</p>
+<p><strong>algorithm</strong> : str, optional, default=’cg’</p>
 <blockquote>
-<div><p>The energy minimization algorithm.  Valid options are &#8216;steep&#8217;,
-&#8216;cg&#8217;, and &#8216;md&#8217;, corresponding to steepest descent, conjugate
+<div><p>The energy minimization algorithm.  Valid options are ‘steep’,
+‘cg’, and ‘md’, corresponding to steepest descent, conjugate
 gradient, and equilibrium molecular dynamics respectively.</p>
 </div></blockquote>
-<p><strong>forcefield</strong> : str, optional, default=&#8217;UFF&#8217;</p>
+<p><strong>forcefield</strong> : str, optional, default=’UFF’</p>
 <blockquote class="last">
 <div><p>The generic force field to apply to the Compound for minimization.
-Valid options are &#8216;MMFF94&#8217;, &#8216;MMFF94s&#8217;, &#8216;&#8217;UFF&#8217;, &#8216;GAFF&#8217;, and &#8216;Ghemical&#8217;.
+Valid options are ‘MMFF94’, ‘MMFF94s’, ”UFF’, ‘GAFF’, and ‘Ghemical’.
 Please refer to the Open Babel documentation (<a class="reference external" href="http://open-babel">http://open-babel</a>.
 readthedocs.io/en/latest/Forcefields/Overview.html) when considering
 your choice of force field.</p>
@@ -2763,9 +2763,9 @@ your choice of force field.</p>
 <table class="docutils citation" frame="void" id="r45" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id23">[R45]</a></td><td>O&#8217;Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
-Vandermeersch, T.; Hutchison, G.R. &#8220;Open Babel: An open
-chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id23">[R45]</a></td><td>O’Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
+Vandermeersch, T.; Hutchison, G.R. “Open Babel: An open
+chemical toolbox.” (2011) J. Cheminf. 3, 33</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r46" rules="none">
@@ -2775,62 +2775,62 @@ chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
 Month Year)</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94&#8217; force field please also cite the following:
-.. [R47] T.A. Halgren, &#8220;Merck molecular force field. I. Basis, form,</p>
+<p>If using the ‘MMFF94’ force field please also cite the following:
+.. [R47] T.A. Halgren, “Merck molecular force field. I. Basis, form,</p>
 <blockquote>
-<div>scope, parameterization, and performance of MMFF94.&#8221; (1996)
+<div>scope, parameterization, and performance of MMFF94.” (1996)
 J. Comput. Chem. 17, 490-519</div></blockquote>
 <table class="docutils citation" frame="void" id="r48" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id26">[R48]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. II. MMFF94 van der
+<tr><td class="label"><a class="fn-backref" href="#id26">[R48]</a></td><td>T.A. Halgren, “Merck molecular force field. II. MMFF94 van der
 Waals and electrostatic parameters for intermolecular
-interactions.&#8221; (1996) J. Comput. Chem. 17, 520-552</td></tr>
+interactions.” (1996) J. Comput. Chem. 17, 520-552</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r49" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id27">[R49]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. III. Molecular
-geometries and vibrational frequencies for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id27">[R49]</a></td><td>T.A. Halgren, “Merck molecular force field. III. Molecular
+geometries and vibrational frequencies for MMFF94.” (1996)
 J. Comput. Chem. 17, 553-586</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r50" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id28">[R50]</a></td><td>T.A. Halgren and R.B. Nachbar, &#8220;Merck molecular force field.
-IV. Conformational energies and geometries for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id28">[R50]</a></td><td>T.A. Halgren and R.B. Nachbar, “Merck molecular force field.
+IV. Conformational energies and geometries for MMFF94.” (1996)
 J. Comput. Chem. 17, 587-615</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r51" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id29">[R51]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. V. Extension of
+<tr><td class="label"><a class="fn-backref" href="#id29">[R51]</a></td><td>T.A. Halgren, “Merck molecular force field. V. Extension of
 MMFF94 using experimental data, additional computational data,
-and empirical rules.&#8221; (1996) J. Comput. Chem. 17, 616-641</td></tr>
+and empirical rules.” (1996) J. Comput. Chem. 17, 616-641</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94s&#8217; force field please cite the above along with:
-.. [R52] T.A. Halgren, &#8220;MMFF VI. MMFF94s option for energy minimization</p>
+<p>If using the ‘MMFF94s’ force field please cite the above along with:
+.. [R52] T.A. Halgren, “MMFF VI. MMFF94s option for energy minimization</p>
 <blockquote>
-<div>studies.&#8221; (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
-<p>If using the &#8216;UFF&#8217; force field please cite the following:
+<div>studies.” (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
+<p>If using the ‘UFF’ force field please cite the following:
 .. [R47] Rappe, A.K., Casewit, C.J., Colwell, K.S., Goddard, W.A. III,</p>
 <blockquote>
-<div>Skiff, W.M. &#8220;UFF, a full periodic table force field for
-molecular mechanics and molecular dynamics simulations.&#8221; (1992)
+<div>Skiff, W.M. “UFF, a full periodic table force field for
+molecular mechanics and molecular dynamics simulations.” (1992)
 J. Am. Chem. Soc. 114, 10024-10039</div></blockquote>
-<p>If using the &#8216;GAFF&#8217; force field please cite the following:
+<p>If using the ‘GAFF’ force field please cite the following:
 .. [R47] Wang, J., Wolf, R.M., Caldwell, J.W., Kollman, P.A., Case, D.A.</p>
 <blockquote>
-<div>&#8220;Development and testing of a general AMBER force field&#8221; (2004)
+<div>“Development and testing of a general AMBER force field” (2004)
 J. Comput. Chem. 25, 1157-1174</div></blockquote>
-<p>If using the &#8216;Ghemical&#8217; force field please cite the following:
-.. [R47] T. Hassinen and M. Perakyla, &#8220;New energy terms for reduced</p>
+<p>If using the ‘Ghemical’ force field please cite the following:
+.. [R47] T. Hassinen and M. Perakyla, “New energy terms for reduced</p>
 <blockquote>
-<div>protein models implemented in an off-lattice force field&#8221; (2001)
+<div>protein models implemented in an off-lattice force field” (2001)
 J. Comput. Chem. 22, 1229-1242</div></blockquote>
 </dd></dl>
 
@@ -3139,7 +3139,7 @@ image convention</p>
 </div></blockquote>
 <p><strong>dmax</strong> : float</p>
 <blockquote>
-<div><p>Maximum distance from &#8216;compound&#8217; to look for Particles</p>
+<div><p>Maximum distance from ‘compound’ to look for Particles</p>
 </div></blockquote>
 <p><strong>max_particles</strong> : int, optional, default=20</p>
 <blockquote>
@@ -3260,14 +3260,14 @@ particle with a matching rigid_id if specified</p>
 <dl class="attribute">
 <dt id="mbuild.recipes.tiled_compound.TiledCompound.root">
 <code class="descname">root</code><a class="headerlink" href="#mbuild.recipes.tiled_compound.TiledCompound.root" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Compound at the top of self&#8217;s hierarchy.</p>
+<dd><p>The Compound at the top of self’s hierarchy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mb.Compound</p>
 <blockquote class="last">
-<div><p>The Compound at the top of self&#8217;s hierarchy</p>
+<div><p>The Compound at the top of self’s hierarchy</p>
 </div></blockquote>
 </td>
 </tr>
@@ -3309,7 +3309,7 @@ particle with a matching rigid_id if specified</p>
 <blockquote>
 <div><p>Filesystem path in which to save the trajectory. The extension or
 prefix will be parsed and control the format. Supported
-extensions are: &#8216;hoomdxml&#8217;, &#8216;gsd&#8217;, &#8216;gro&#8217;, &#8216;top&#8217;, &#8216;lammps&#8217;, &#8216;lmp&#8217;</p>
+extensions are: ‘hoomdxml’, ‘gsd’, ‘gro’, ‘top’, ‘lammps’, ‘lmp’</p>
 </div></blockquote>
 <p><strong>show_ports</strong> : bool, optional, default=False</p>
 <blockquote>
@@ -3323,12 +3323,12 @@ by the <cite>foyer</cite> package.</p>
 <p><strong>forcefield_name</strong> : str, optional, default=None</p>
 <blockquote>
 <div><p>Apply a named forcefield to the output file using the <cite>foyer</cite>
-package, e.g. &#8216;oplsaa&#8217;. Forcefields listed here:
+package, e.g. ‘oplsaa’. Forcefields listed here:
 <a class="reference external" href="https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields">https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields</a></p>
 </div></blockquote>
 <p><strong>box</strong> : mb.Box, optional, default=self.boundingbox (with buffer)</p>
 <blockquote>
-<div><p>Box information to be written to the output file. If &#8216;None&#8217;, a
+<div><p>Box information to be written to the output file. If ‘None’, a
 bounding box is used with 0.25nm buffers at each face to avoid
 overlapping atoms.</p>
 </div></blockquote>
@@ -3439,7 +3439,7 @@ for converting mass values to reduced units.</p>
 
 <dl class="method">
 <dt id="mbuild.recipes.tiled_compound.TiledCompound.to_parmed">
-<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=''</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.tiled_compound.TiledCompound.to_parmed" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=”</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.tiled_compound.TiledCompound.to_parmed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ParmEd Structure from a Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3672,16 +3672,16 @@ including oxygen layers on the top and bottom of the surface)</p>
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id34">[R56]</a></td><td>Hartkamp, R., Siboulet, B., Dufreche, J.-F., Boasne, B.
-&#8220;Ion-specific adsorption and electroosmosis in charged
-amorphous porous silica.&#8221; (2015) Phys. Chem. Chem. Phys.
+“Ion-specific adsorption and electroosmosis in charged
+amorphous porous silica.” (2015) Phys. Chem. Chem. Phys.
 17, 24683-24695</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r57" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id35">[R57]</a></td><td>L.T. Zhuravlev, &#8220;The surface chemistry of amorphous silica.
-Zhuravlev model.&#8221; (2000) Colloids Surf., A. 10, 1-38</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id35">[R57]</a></td><td>L.T. Zhuravlev, “The surface chemistry of amorphous silica.
+Zhuravlev model.” (2000) Colloids Surf., A. 10, 1-38</td></tr>
 </tbody>
 </table>
 <dl class="method">
@@ -3692,7 +3692,7 @@ Zhuravlev model.&#8221; (2000) Colloids Surf., A. 10, 1-38</td></tr>
 <dt>Note:</dt>
 <dd>This does not necessarily add the part to self.children but may
 instead be used to add a reference to the part to self.labels. See
-&#8216;containment&#8217; argument.</dd>
+‘containment’ argument.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3886,21 +3886,21 @@ hierarchy) then contains_rigid will return False.</p>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>The private variable &#8216;_check_if_contains_rigid_bodies&#8217; is used to help
-cache the status of &#8216;contains_rigid&#8217;. If &#8216;_check_if_contains_rigid_bodies&#8217;
+<p>The private variable ‘_check_if_contains_rigid_bodies’ is used to help
+cache the status of ‘contains_rigid’. If ‘_check_if_contains_rigid_bodies’
 is False, then the rigid body containment of the Compound has not changed,
 and the particle tree is not traversed, boosting performance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mbuild.recipes.silica_interface.SilicaInterface.energy_minimization">
-<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm='cg'</em>, <em>forcefield='UFF'</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.silica_interface.SilicaInterface.energy_minimization" title="Permalink to this definition">¶</a></dt>
+<code class="descname">energy_minimization</code><span class="sig-paren">(</span><em>steps=2500</em>, <em>algorithm=’cg’</em>, <em>forcefield=’UFF’</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.silica_interface.SilicaInterface.energy_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform an energy minimization on a Compound</p>
 <p>Utilizes Open Babel (<a class="reference external" href="http://openbabel.org/docs/dev/">http://openbabel.org/docs/dev/</a>) to perform an
 energy minimization/geometry optimization on a Compound by applying
 a generic force field.</p>
 <p>This function is primarily intended to be used on smaller components,
-with sizes on the order of 10&#8217;s to 100&#8217;s of particles, as the energy
+with sizes on the order of 10’s to 100’s of particles, as the energy
 minimization scales poorly with the number of particles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3910,16 +3910,16 @@ minimization scales poorly with the number of particles.</p>
 <blockquote>
 <div><p>The number of optimization iterations</p>
 </div></blockquote>
-<p><strong>algorithm</strong> : str, optional, default=&#8217;cg&#8217;</p>
+<p><strong>algorithm</strong> : str, optional, default=’cg’</p>
 <blockquote>
-<div><p>The energy minimization algorithm.  Valid options are &#8216;steep&#8217;,
-&#8216;cg&#8217;, and &#8216;md&#8217;, corresponding to steepest descent, conjugate
+<div><p>The energy minimization algorithm.  Valid options are ‘steep’,
+‘cg’, and ‘md’, corresponding to steepest descent, conjugate
 gradient, and equilibrium molecular dynamics respectively.</p>
 </div></blockquote>
-<p><strong>forcefield</strong> : str, optional, default=&#8217;UFF&#8217;</p>
+<p><strong>forcefield</strong> : str, optional, default=’UFF’</p>
 <blockquote class="last">
 <div><p>The generic force field to apply to the Compound for minimization.
-Valid options are &#8216;MMFF94&#8217;, &#8216;MMFF94s&#8217;, &#8216;&#8217;UFF&#8217;, &#8216;GAFF&#8217;, and &#8216;Ghemical&#8217;.
+Valid options are ‘MMFF94’, ‘MMFF94s’, ”UFF’, ‘GAFF’, and ‘Ghemical’.
 Please refer to the Open Babel documentation (<a class="reference external" href="http://open-babel">http://open-babel</a>.
 readthedocs.io/en/latest/Forcefields/Overview.html) when considering
 your choice of force field.</p>
@@ -3932,9 +3932,9 @@ your choice of force field.</p>
 <table class="docutils citation" frame="void" id="r58" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id36">[R58]</a></td><td>O&#8217;Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
-Vandermeersch, T.; Hutchison, G.R. &#8220;Open Babel: An open
-chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id36">[R58]</a></td><td>O’Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.;
+Vandermeersch, T.; Hutchison, G.R. “Open Babel: An open
+chemical toolbox.” (2011) J. Cheminf. 3, 33</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r59" rules="none">
@@ -3944,62 +3944,62 @@ chemical toolbox.&#8221; (2011) J. Cheminf. 3, 33</td></tr>
 Month Year)</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94&#8217; force field please also cite the following:
-.. [R60] T.A. Halgren, &#8220;Merck molecular force field. I. Basis, form,</p>
+<p>If using the ‘MMFF94’ force field please also cite the following:
+.. [R60] T.A. Halgren, “Merck molecular force field. I. Basis, form,</p>
 <blockquote>
-<div>scope, parameterization, and performance of MMFF94.&#8221; (1996)
+<div>scope, parameterization, and performance of MMFF94.” (1996)
 J. Comput. Chem. 17, 490-519</div></blockquote>
 <table class="docutils citation" frame="void" id="r61" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id39">[R61]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. II. MMFF94 van der
+<tr><td class="label"><a class="fn-backref" href="#id39">[R61]</a></td><td>T.A. Halgren, “Merck molecular force field. II. MMFF94 van der
 Waals and electrostatic parameters for intermolecular
-interactions.&#8221; (1996) J. Comput. Chem. 17, 520-552</td></tr>
+interactions.” (1996) J. Comput. Chem. 17, 520-552</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r62" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id40">[R62]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. III. Molecular
-geometries and vibrational frequencies for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id40">[R62]</a></td><td>T.A. Halgren, “Merck molecular force field. III. Molecular
+geometries and vibrational frequencies for MMFF94.” (1996)
 J. Comput. Chem. 17, 553-586</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r63" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id41">[R63]</a></td><td>T.A. Halgren and R.B. Nachbar, &#8220;Merck molecular force field.
-IV. Conformational energies and geometries for MMFF94.&#8221; (1996)
+<tr><td class="label"><a class="fn-backref" href="#id41">[R63]</a></td><td>T.A. Halgren and R.B. Nachbar, “Merck molecular force field.
+IV. Conformational energies and geometries for MMFF94.” (1996)
 J. Comput. Chem. 17, 587-615</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r64" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id42">[R64]</a></td><td>T.A. Halgren, &#8220;Merck molecular force field. V. Extension of
+<tr><td class="label"><a class="fn-backref" href="#id42">[R64]</a></td><td>T.A. Halgren, “Merck molecular force field. V. Extension of
 MMFF94 using experimental data, additional computational data,
-and empirical rules.&#8221; (1996) J. Comput. Chem. 17, 616-641</td></tr>
+and empirical rules.” (1996) J. Comput. Chem. 17, 616-641</td></tr>
 </tbody>
 </table>
-<p>If using the &#8216;MMFF94s&#8217; force field please cite the above along with:
-.. [R65] T.A. Halgren, &#8220;MMFF VI. MMFF94s option for energy minimization</p>
+<p>If using the ‘MMFF94s’ force field please cite the above along with:
+.. [R65] T.A. Halgren, “MMFF VI. MMFF94s option for energy minimization</p>
 <blockquote>
-<div>studies.&#8221; (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
-<p>If using the &#8216;UFF&#8217; force field please cite the following:
+<div>studies.” (1999) J. Comput. Chem. 20, 720-729</div></blockquote>
+<p>If using the ‘UFF’ force field please cite the following:
 .. [R60] Rappe, A.K., Casewit, C.J., Colwell, K.S., Goddard, W.A. III,</p>
 <blockquote>
-<div>Skiff, W.M. &#8220;UFF, a full periodic table force field for
-molecular mechanics and molecular dynamics simulations.&#8221; (1992)
+<div>Skiff, W.M. “UFF, a full periodic table force field for
+molecular mechanics and molecular dynamics simulations.” (1992)
 J. Am. Chem. Soc. 114, 10024-10039</div></blockquote>
-<p>If using the &#8216;GAFF&#8217; force field please cite the following:
+<p>If using the ‘GAFF’ force field please cite the following:
 .. [R60] Wang, J., Wolf, R.M., Caldwell, J.W., Kollman, P.A., Case, D.A.</p>
 <blockquote>
-<div>&#8220;Development and testing of a general AMBER force field&#8221; (2004)
+<div>“Development and testing of a general AMBER force field” (2004)
 J. Comput. Chem. 25, 1157-1174</div></blockquote>
-<p>If using the &#8216;Ghemical&#8217; force field please cite the following:
-.. [R60] T. Hassinen and M. Perakyla, &#8220;New energy terms for reduced</p>
+<p>If using the ‘Ghemical’ force field please cite the following:
+.. [R60] T. Hassinen and M. Perakyla, “New energy terms for reduced</p>
 <blockquote>
-<div>protein models implemented in an off-lattice force field&#8221; (2001)
+<div>protein models implemented in an off-lattice force field” (2001)
 J. Comput. Chem. 22, 1229-1242</div></blockquote>
 </dd></dl>
 
@@ -4308,7 +4308,7 @@ image convention</p>
 </div></blockquote>
 <p><strong>dmax</strong> : float</p>
 <blockquote>
-<div><p>Maximum distance from &#8216;compound&#8217; to look for Particles</p>
+<div><p>Maximum distance from ‘compound’ to look for Particles</p>
 </div></blockquote>
 <p><strong>max_particles</strong> : int, optional, default=20</p>
 <blockquote>
@@ -4429,14 +4429,14 @@ particle with a matching rigid_id if specified</p>
 <dl class="attribute">
 <dt id="mbuild.recipes.silica_interface.SilicaInterface.root">
 <code class="descname">root</code><a class="headerlink" href="#mbuild.recipes.silica_interface.SilicaInterface.root" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Compound at the top of self&#8217;s hierarchy.</p>
+<dd><p>The Compound at the top of self’s hierarchy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mb.Compound</p>
 <blockquote class="last">
-<div><p>The Compound at the top of self&#8217;s hierarchy</p>
+<div><p>The Compound at the top of self’s hierarchy</p>
 </div></blockquote>
 </td>
 </tr>
@@ -4478,7 +4478,7 @@ particle with a matching rigid_id if specified</p>
 <blockquote>
 <div><p>Filesystem path in which to save the trajectory. The extension or
 prefix will be parsed and control the format. Supported
-extensions are: &#8216;hoomdxml&#8217;, &#8216;gsd&#8217;, &#8216;gro&#8217;, &#8216;top&#8217;, &#8216;lammps&#8217;, &#8216;lmp&#8217;</p>
+extensions are: ‘hoomdxml’, ‘gsd’, ‘gro’, ‘top’, ‘lammps’, ‘lmp’</p>
 </div></blockquote>
 <p><strong>show_ports</strong> : bool, optional, default=False</p>
 <blockquote>
@@ -4492,12 +4492,12 @@ by the <cite>foyer</cite> package.</p>
 <p><strong>forcefield_name</strong> : str, optional, default=None</p>
 <blockquote>
 <div><p>Apply a named forcefield to the output file using the <cite>foyer</cite>
-package, e.g. &#8216;oplsaa&#8217;. Forcefields listed here:
+package, e.g. ‘oplsaa’. Forcefields listed here:
 <a class="reference external" href="https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields">https://github.com/mosdef-hub/foyer/tree/master/foyer/forcefields</a></p>
 </div></blockquote>
 <p><strong>box</strong> : mb.Box, optional, default=self.boundingbox (with buffer)</p>
 <blockquote>
-<div><p>Box information to be written to the output file. If &#8216;None&#8217;, a
+<div><p>Box information to be written to the output file. If ‘None’, a
 bounding box is used with 0.25nm buffers at each face to avoid
 overlapping atoms.</p>
 </div></blockquote>
@@ -4608,7 +4608,7 @@ for converting mass values to reduced units.</p>
 
 <dl class="method">
 <dt id="mbuild.recipes.silica_interface.SilicaInterface.to_parmed">
-<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=''</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.silica_interface.SilicaInterface.to_parmed" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_parmed</code><span class="sig-paren">(</span><em>box=None</em>, <em>title=”</em>, <em>residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.recipes.silica_interface.SilicaInterface.to_parmed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ParmEd Structure from a Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -4838,10 +4838,10 @@ Cartesian space.</p>
 <blockquote>
 <div><p>Length of unit cell edges.</p>
 </div></blockquote>
-<p><strong>basis_atoms</strong> : dictionary, shape={&#8216;id&#8217;:[nested list of coordinate pairs]}</p>
+<p><strong>basis_atoms</strong> : dictionary, shape={‘id’:[nested list of coordinate pairs]}</p>
 <blockquote>
 <div><blockquote>
-<div><p>default={&#8216;default&#8217;:[[0., 0., 0.]]</p>
+<div><p>default={‘default’:[[0., 0., 0.]]</p>
 </div></blockquote>
 <p>Location of all basis Compounds in unit cell.</p>
 </div></blockquote>
@@ -4871,45 +4871,45 @@ Cartesian space.</p>
 cholesterol was generated.</p>
 <p>Replicating the triclinic unit cell out 3 in x,y,z directions.
 &gt;&gt;&gt; cholesterol_unit = mb.Compound()
-&gt;&gt;&gt; cholesterol_unit = mb.load(get_fn(&#8216;cholesterol.pdb&#8217;))
-&gt;&gt;&gt; # associate basis vector with id &#8216;cholesterol&#8217; to cholesterol Compound
-&gt;&gt;&gt; basis_dictionary = {&#8216;cholesterol&#8217; : cholesterol_unit}
+&gt;&gt;&gt; cholesterol_unit = mb.load(get_fn(‘cholesterol.pdb’))
+&gt;&gt;&gt; # associate basis vector with id ‘cholesterol’ to cholesterol Compound
+&gt;&gt;&gt; basis_dictionary = {‘cholesterol’ : cholesterol_unit}
 &gt;&gt;&gt; expanded_cell = cholesterol_lattice.populate(x=3, y=3, z=3,
-...                              compound_dict=basis_dictionary)</p>
+…                              compound_dict=basis_dictionary)</p>
 <p>The unit cell of cholesterol was associated with a Compound that contains
 the connectivity data and spatial arrangements of a cholesterol molecule.
 The unit cell was then expanded out in x,y,z directions and cholesterol
 Compounds were populated.</p>
 <p>Generating BCC CsCl crystal structure
 &gt;&gt;&gt; import mbuild as mb
-&gt;&gt;&gt; chlorine = mb.Compound(name=&#8217;Cl&#8217;)
+&gt;&gt;&gt; chlorine = mb.Compound(name=’Cl’)
 &gt;&gt;&gt; # angles not needed, when not provided, defaults to 90,90,90
-&gt;&gt;&gt; cesium = mb.Compound(name=&#8217;Cs&#8217;)
+&gt;&gt;&gt; cesium = mb.Compound(name=’Cs’)
 &gt;&gt;&gt; spacings = [.4123, .4123, .4123]
-&gt;&gt;&gt; basis = {&#8216;Cl&#8217; : [[0., 0., 0.]], &#8216;Cs&#8217; : [[.5, .5, .5]]}
+&gt;&gt;&gt; basis = {‘Cl’ : [[0., 0., 0.]], ‘Cs’ : [[.5, .5, .5]]}
 &gt;&gt;&gt; cscl_lattice = mb.Lattice(spacings, basis_atoms=basis,
-...                           dimension=3)</p>
+…                           dimension=3)</p>
 <p>Now associate id with Compounds for basis atoms and replicate 3x3x3
-&gt;&gt;&gt; cscl_dict = {&#8216;Cl&#8217; : chlorine, &#8216;Cs&#8217; : cesium}
+&gt;&gt;&gt; cscl_dict = {‘Cl’ : chlorine, ‘Cs’ : cesium}
 &gt;&gt;&gt; cscl_compound = cscl_lattice.populate(x=3, y=3, z=3,
-...                                       compound_dict=cscl_dict)</p>
+…                                       compound_dict=cscl_dict)</p>
 <p>A multi-Compound basis was created and replicated. For each unique basis
 atom position, a separate entry must be completed for the basis_atom
 input.</p>
 <p>Generating FCC Copper cell with lattice_vectors instead of angles
 &gt;&gt;&gt; import mbuild as mb
-&gt;&gt;&gt; copper = mb.Compound(name=&#8217;Cu&#8217;)
+&gt;&gt;&gt; copper = mb.Compound(name=’Cu’)
 &gt;&gt;&gt; lattice_vector = ( [1, 0, 0], [0, 1, 0], [0, 0, 1])
 &gt;&gt;&gt; spacings = [.36149, .36149, .36149]
 &gt;&gt;&gt; copper_locations = [[0., 0., 0.], [.5, .5, 0.],
-...                     [.5, 0., .5], [0., .5, .5]]
-&gt;&gt;&gt; basis = {&#8216;Cu&#8217; : copper_locations}
+…                     [.5, 0., .5], [0., .5, .5]]
+&gt;&gt;&gt; basis = {‘Cu’ : copper_locations}
 &gt;&gt;&gt; copper_lattice = mb.Lattice(spacings, dimension=3,
-...                           lattice_vectors=lattice_vector,
-...                           basis_atoms=basis)
-&gt;&gt;&gt; copper_dict = {&#8216;Cu&#8217; : copper}
+…                           lattice_vectors=lattice_vector,
+…                           basis_atoms=basis)
+&gt;&gt;&gt; copper_dict = {‘Cu’ : copper}
 &gt;&gt;&gt; copper_cell = copper_lattice.populate(x=3, y=3, z=20,
-...                                       compound_dict=copper_dict)</p>
+…                                       compound_dict=copper_dict)</p>
 <p>TODO(Justin Gilmer) : Print function to display info about Lattice (repr)
 TODO(Justin Gilmer) : inheritance(Cubic, orthorhombic, hexangonal)
 TODO(Justin Gilmer) : orientation functionality</p>
@@ -4930,7 +4930,7 @@ TODO(Justin Gilmer) : orientation functionality</p>
 <td>(list-like, shape=(dimension,), required, default=None) Length of unit cell edges.</td>
 </tr>
 <tr class="row-even"><td>basis_atoms</td>
-<td>(list-like, shape=([&#8216;id&#8217;,[dimension,]], ... ,) optional) default={(&#8216;default&#8217;,([0,0,0]))} Location of all basis Compounds in unit cell.</td>
+<td>(list-like, shape=([‘id’,[dimension,]], … ,) optional) default={(‘default’,([0,0,0]))} Location of all basis Compounds in unit cell.</td>
 </tr>
 <tr class="row-odd"><td>angles</td>
 <td>(list-like, optional, default=None) Lattice angles to define Bravais Lattice.</td>
@@ -5050,12 +5050,12 @@ returned to the user.</p>
 <dt id="mbuild.pattern.DiskPattern">
 <em class="property">class </em><code class="descclassname">mbuild.pattern.</code><code class="descname">DiskPattern</code><span class="sig-paren">(</span><em>n</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/pattern.html#DiskPattern"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.pattern.DiskPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate N evenly distributed points on the unit circle along z = 0.</p>
-<p>Disk is centered at the origin. Algorithm based on Vogel&#8217;s method.</p>
+<p>Disk is centered at the origin. Algorithm based on Vogel’s method.</p>
 <p>Code by Alexandre Devert:
 <a class="reference external" href="http://blog.marmakoide.org/?p=1">http://blog.marmakoide.org/?p=1</a></p>
 <dl class="method">
 <dt id="mbuild.pattern.DiskPattern.apply">
-<code class="descname">apply</code><span class="sig-paren">(</span><em>compound</em>, <em>orientation=''</em>, <em>compound_port=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.DiskPattern.apply" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply</code><span class="sig-paren">(</span><em>compound</em>, <em>orientation=”</em>, <em>compound_port=”</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.DiskPattern.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Arrange copies of a Compound as specified by the Pattern.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -5071,7 +5071,7 @@ returned to the user.</p>
 
 <dl class="method">
 <dt id="mbuild.pattern.DiskPattern.apply_to_compound">
-<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name='down'</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name='up'</em>, <em>scale=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.DiskPattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name=’down’</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name=’up’</em>, <em>scale=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.DiskPattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach copies of a guest Compound to Ports on a host Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -5081,7 +5081,7 @@ returned to the user.</p>
 <blockquote>
 <div><p>The Compound prototype to be applied to the host Compound</p>
 </div></blockquote>
-<p><strong>guest_port_name</strong> : str, optional, default=&#8217;down&#8217;</p>
+<p><strong>guest_port_name</strong> : str, optional, default=’down’</p>
 <blockquote>
 <div><p>The name of the port located on <cite>guest</cite> to attach to the host</p>
 </div></blockquote>
@@ -5095,14 +5095,14 @@ returned to the user.</p>
 after clones of <cite>guest</cite> have been added for each point in the
 pattern</p>
 </div></blockquote>
-<p><strong>backfill_port_name</strong> : str, optional, default=&#8217;up&#8217;</p>
+<p><strong>backfill_port_name</strong> : str, optional, default=’up’</p>
 <blockquote>
 <div><p>The name of the port located on <cite>backfill</cite> to attach to the host</p>
 </div></blockquote>
 <p><strong>scale</strong> : bool, optional, default=True</p>
 <blockquote class="last">
-<div><p>Scale the points in the pattern to the lengths of the <cite>host</cite>&#8216;s
-<cite>boundingbox</cite> and shift them by the <cite>boundingbox</cite>&#8216;s mins</p>
+<div><p>Scale the points in the pattern to the lengths of the <cite>host</cite>’s
+<cite>boundingbox</cite> and shift them by the <cite>boundingbox</cite>’s mins</p>
 </div></blockquote>
 </td>
 </tr>
@@ -5135,12 +5135,12 @@ If np.ndarray, scale each direction independently.</p>
 <dt id="mbuild.pattern.SpherePattern">
 <em class="property">class </em><code class="descclassname">mbuild.pattern.</code><code class="descname">SpherePattern</code><span class="sig-paren">(</span><em>n</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mbuild/pattern.html#SpherePattern"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mbuild.pattern.SpherePattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate N evenly distributed points on the unit sphere.</p>
-<p>Sphere is centered at the origin. Alrgorithm based on the &#8216;Golden Spiral&#8217;.</p>
+<p>Sphere is centered at the origin. Alrgorithm based on the ‘Golden Spiral’.</p>
 <p>Code by Chris Colbert from the numpy-discussion list:
 <a class="reference external" href="http://mail.scipy.org/pipermail/numpy-discussion/2009-July/043811.html">http://mail.scipy.org/pipermail/numpy-discussion/2009-July/043811.html</a></p>
 <dl class="method">
 <dt id="mbuild.pattern.SpherePattern.apply">
-<code class="descname">apply</code><span class="sig-paren">(</span><em>compound</em>, <em>orientation=''</em>, <em>compound_port=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.SpherePattern.apply" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply</code><span class="sig-paren">(</span><em>compound</em>, <em>orientation=”</em>, <em>compound_port=”</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.SpherePattern.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Arrange copies of a Compound as specified by the Pattern.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -5156,7 +5156,7 @@ If np.ndarray, scale each direction independently.</p>
 
 <dl class="method">
 <dt id="mbuild.pattern.SpherePattern.apply_to_compound">
-<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name='down'</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name='up'</em>, <em>scale=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.SpherePattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_to_compound</code><span class="sig-paren">(</span><em>guest</em>, <em>guest_port_name=’down’</em>, <em>host=None</em>, <em>backfill=None</em>, <em>backfill_port_name=’up’</em>, <em>scale=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mbuild.pattern.SpherePattern.apply_to_compound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach copies of a guest Compound to Ports on a host Compound.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -5166,7 +5166,7 @@ If np.ndarray, scale each direction independently.</p>
 <blockquote>
 <div><p>The Compound prototype to be applied to the host Compound</p>
 </div></blockquote>
-<p><strong>guest_port_name</strong> : str, optional, default=&#8217;down&#8217;</p>
+<p><strong>guest_port_name</strong> : str, optional, default=’down’</p>
 <blockquote>
 <div><p>The name of the port located on <cite>guest</cite> to attach to the host</p>
 </div></blockquote>
@@ -5180,14 +5180,14 @@ If np.ndarray, scale each direction independently.</p>
 after clones of <cite>guest</cite> have been added for each point in the
 pattern</p>
 </div></blockquote>
-<p><strong>backfill_port_name</strong> : str, optional, default=&#8217;up&#8217;</p>
+<p><strong>backfill_port_name</strong> : str, optional, default=’up’</p>
 <blockquote>
 <div><p>The name of the port located on <cite>backfill</cite> to attach to the host</p>
 </div></blockquote>
 <p><strong>scale</strong> : bool, optional, default=True</p>
 <blockquote class="last">
-<div><p>Scale the points in the pattern to the lengths of the <cite>host</cite>&#8216;s
-<cite>boundingbox</cite> and shift them by the <cite>boundingbox</cite>&#8216;s mins</p>
+<div><p>Scale the points in the pattern to the lengths of the <cite>host</cite>’s
+<cite>boundingbox</cite> and shift them by the <cite>boundingbox</cite>’s mins</p>
 </div></blockquote>
 </td>
 </tr>

@@ -180,6 +180,7 @@
 <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
 
+<span class="kn">import</span> <span class="nn">mdtraj</span> <span class="k">as</span> <span class="nn">md</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">oset</span> <span class="k">import</span> <span class="n">oset</span> <span class="k">as</span> <span class="n">OrderedSet</span>
 <span class="kn">import</span> <span class="nn">parmed</span> <span class="k">as</span> <span class="nn">pmd</span>
@@ -199,7 +200,7 @@
 
 
 <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">relative_to_module</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">coords_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-         <span class="n">rigid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_mdtraj</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+         <span class="n">rigid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_parmed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Load a file into an mbuild compound.</span>
 
 <span class="sd">    Files are read using the MDTraj package unless the `use_parmed` argument is</span>
@@ -222,8 +223,8 @@
 <span class="sd">        Only load the coordinates into an existing compoint.</span>
 <span class="sd">    rigid : bool, optional, default=False</span>
 <span class="sd">        Treat the compound as a rigid body</span>
-<span class="sd">    use_mdtraj : bool, optional, default=False</span>
-<span class="sd">        Use readers from MDTraj instead of Parmed.</span>
+<span class="sd">    use_parmed : bool, optional, default=False</span>
+<span class="sd">        Use readers from ParmEd instead of MDTraj.</span>
 <span class="sd">    **kwargs : keyword arguments</span>
 <span class="sd">        Key word arguments passed to mdTraj for loading.</span>
 
@@ -243,14 +244,14 @@
     <span class="k">if</span> <span class="n">compound</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">compound</span> <span class="o">=</span> <span class="n">Compound</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">use_mdtraj</span><span class="p">:</span>
-        <span class="n">mdtraj</span> <span class="o">=</span> <span class="n">import_</span><span class="p">(</span><span class="s1">&#39;mdtraj&#39;</span><span class="p">)</span>
-
-        <span class="n">traj</span> <span class="o">=</span> <span class="n">mdtraj</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">compound</span><span class="o">.</span><span class="n">from_trajectory</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="n">frame</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">coords_only</span><span class="o">=</span><span class="n">coords_only</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">structure</span> <span class="o">=</span> <span class="n">pmd</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">use_parmed</span><span class="p">:</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;use_parmed set to True.  Bonds may be inferred from inter-particle &quot;</span>
+             <span class="s2">&quot;distances and standard residue templates!&quot;</span><span class="p">)</span>
+        <span class="n">structure</span> <span class="o">=</span> <span class="n">pmd</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">compound</span><span class="o">.</span><span class="n">from_parmed</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">coords_only</span><span class="o">=</span><span class="n">coords_only</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">traj</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">compound</span><span class="o">.</span><span class="n">from_trajectory</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="n">frame</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">coords_only</span><span class="o">=</span><span class="n">coords_only</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">rigid</span><span class="p">:</span>
         <span class="n">compound</span><span class="o">.</span><span class="n">label_rigid_bodies</span><span class="p">()</span>
@@ -1647,7 +1648,6 @@
 <span class="sd">        _to_topology</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">mdtraj</span> <span class="o">=</span> <span class="n">import_</span><span class="p">(</span><span class="s1">&#39;mdtraj&#39;</span><span class="p">)</span>
         <span class="n">atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">particle</span> <span class="k">for</span> <span class="n">particle</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">(</span><span class="n">show_ports</span><span class="p">)]</span>
 
         <span class="n">top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_topology</span><span class="p">(</span><span class="n">atom_list</span><span class="p">,</span> <span class="n">chains</span><span class="p">,</span> <span class="n">residues</span><span class="p">)</span>
@@ -1666,7 +1666,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">unitcell_lengths</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">lengths</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">mdtraj</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">unitcell_lengths</span><span class="o">=</span><span class="n">unitcell_lengths</span><span class="p">,</span>
+        <span class="k">return</span> <span class="n">md</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">unitcell_lengths</span><span class="o">=</span><span class="n">unitcell_lengths</span><span class="p">,</span>
                              <span class="n">unitcell_angles</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">]))</span></div>
 
     <span class="k">def</span> <span class="nf">_to_topology</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atom_list</span><span class="p">,</span> <span class="n">chains</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">residues</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
