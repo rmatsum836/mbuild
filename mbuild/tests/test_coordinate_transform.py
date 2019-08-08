@@ -16,16 +16,19 @@ from mbuild.coordinate_transform import (Translation, CoordinateTransform,
                                          angle, _spin)
 from mbuild.tests.base_test import BaseTest
 import mbuild as mb
+from hypothesis import given, assume
+from hypothesis.extra.numpy import arrays
+from hypothesis.strategies import integers
 
 
 class TestCoordinateTransform(BaseTest):
 
-    def test_apply_to(self):
+    @given(A=arrays(int, (3,3), elements=integers(0,50)))
+    def test_apply_to(self, A):
         double = CoordinateTransform(T=np.eye(4)*2)
-        A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-        assert (double.apply_to(A) ==
-                np.array([[2, 4, 6], [8, 10, 12], [14, 16, 18]])).all()
+        assert (double.apply_to(A) == A*2).all()
 
+    @given(A=arrays(int, (3,1), elements=integers(0,50)))
     def test_translation(self):
         translation = Translation((10, 10, 10))
         assert (translation.apply_to(np.array([[1, 1, 1]])) ==
