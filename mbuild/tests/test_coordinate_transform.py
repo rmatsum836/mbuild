@@ -28,7 +28,6 @@ class TestCoordinateTransform(BaseTest):
         double = CoordinateTransform(T=np.eye(4)*2)
         assert (double.apply_to(A) == A*2).all()
 
-    @given(A=arrays(int, (3,1), elements=integers(0,50)))
     def test_translation(self):
         translation = Translation((10, 10, 10))
         assert (translation.apply_to(np.array([[1, 1, 1]])) ==
