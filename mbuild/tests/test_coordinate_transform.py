@@ -33,11 +33,14 @@ class TestCoordinateTransform(BaseTest):
         assert (translation.apply_to(np.array([[1, 1, 1]])) ==
                 np.array([11, 11, 11])).all()
 
-    def test_rotation_around_z(self):
+    @given(A=arrays(int, (1,3), elements=integers(0,50)))
+    def test_rotation_around_z(self, A):
         Z_rotation = RotationAroundZ(np.pi)
-        a = Z_rotation.apply_to(np.array([[2, 3, 4]]))
-        b = np.array([[-2., -3., 4.]])
-        assert np.allclose(a,  b,  atol=1.e-16)
+        #a = Z_rotation.apply_to(np.array([[2, 3, 4]]))
+        a = Z_rotation.apply_to(A)
+        #b = np.array([[-2., -3., 4.]])
+        b = np.array([-A[0][0], -A[0][1], A[0][2]])
+        assert np.allclose(a,  b,  atol=1.e-14)
 
     def test_rotation_around_y(self):
         Y_rotation = RotationAroundY(np.pi)
