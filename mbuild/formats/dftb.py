@@ -5,6 +5,7 @@ import mbuild as mb
 def read_dftb(hsd_file, compound=None):
     """
     Read the atom information from a DFTB+ HSD File
+    Currently only reading in 'GenFormat' types
 
     Parameters
     ----------
@@ -22,8 +23,12 @@ def read_dftb(hsd_file, compound=None):
                 if line.split()[0] == 'Geometry':
                     breaks = True
             else:
-                n_atoms = int(line.split()[0])
-                break
+                # TODO: Handle geometry from a file
+                if 'gen' in line.split()[0]:
+                    continue
+                else:
+                    n_atoms = int(line.split()[0])
+                    break
 
     # Read in only the geometry section of the file
     # Not sure if skipping 3 lines from the geometry line will work for every file
