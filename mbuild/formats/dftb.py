@@ -53,14 +53,14 @@ def read_dftb(hsd_file, compound=None):
 
     return compound
 
-def write_dftb(structure, gen_file, geometry='S'):
+def write_dftb(structure, filename, geometry='S'):
     """
     Write out ParmEd structure to a DFTB+ GEN File
 
     Parameters
     ----------
     structure: ParmEd Structure
-    gen_file: str
+    filename: str
         Output file for DFTB+
 
     geometry: str, default='S'
@@ -80,7 +80,7 @@ def write_dftb(structure, gen_file, geometry='S'):
 
     element_dict = {i:j+1 for i,j in zip(elements, range(len(elements)))}
 
-    with open(gen_file, 'w') as data:
+    with open(filename, 'w') as data:
         data.write('{} {}\n'.format(n_atoms, geometry))
         for element in element_dict.keys():
             data.write('{} '.format(element))

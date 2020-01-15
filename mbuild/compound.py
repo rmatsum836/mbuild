@@ -23,6 +23,7 @@ from mbuild.formats.xyz import read_xyz
 from mbuild.formats.json_formats import compound_to_json, compound_from_json
 from mbuild.formats.hoomdxml import write_hoomdxml
 from mbuild.formats.lammpsdata import write_lammpsdata
+from mbuild.formats.dftb import write_dftb
 from mbuild.formats.gsdwriter import write_gsd
 from mbuild.formats.par_writer import write_par
 from mbuild.periodic_kdtree import PeriodicCKDTree
@@ -1908,7 +1909,8 @@ class Compound(object):
                   '.gsd': write_gsd,
                   '.lammps': write_lammpsdata,
                   '.lmp': write_lammpsdata,
-                  '.par': write_par,}
+                  '.par': write_par,
+                  '.gen': write_dftb}
         if has_networkx:
             from mbuild.formats.cassandramcf import write_mcf
             savers.update({'.mcf': write_mcf})
