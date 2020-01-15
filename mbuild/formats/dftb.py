@@ -1,6 +1,7 @@
 import numpy as np
 import json
 import mbuild as mb
+from decimal import Decimal
 
 def read_dftb(hsd_file, compound=None):
     """
@@ -48,4 +49,45 @@ def read_dftb(hsd_file, compound=None):
         particle = mb.Compound(pos=coords[row], name=atomtype_dict[int(line.split()[1])])
         compound.add(particle)
 
+    # TODO: Read in supercell lattice information
+
     return compound
+
+def write_dftb(structure, gen_file, geometry='S'):
+    """
+    Write out ParmEd structure to a DFTB+ GEN File
+
+    Parameters
+    ----------
+    structure: ParmEd Structure
+    gen_file: str
+        Output file for DFTB+
+
+    geometry: str, default='S'
+        Type of geometry, 'F' is supercell in fractions of lattice vectors,
+        'S' is for supercell in Cartesian Coordinates
+    """
+
+    xyz = np.array([[atom.xx*10, atom.xy*10, atom.xz*10]
+        for atom in structure.atoms])
+
+    # TODO: Convert cartesian coordinates
+    if geometry == 'F':
+        pass
+    names = [i.name for i in structure.atoms]
+    n_atoms = len(structure.atoms)
+    elements = list(set([i.name for i in structure.atoms]))
+
+    element_dict = {i:j+1 for i,j in zip(elements, range(len(elements)))}
+
+    with open(gen_file, 'w') as data:
+        data.write('{} {}\n'.format(n_atoms, geometry))
+        for element in element_dict.keys():
+            data.write('{} '.format(element))
+        data.write('\n')
+        for idx in range(len(names)):
+            data.write('{} {}  {:.11E} {:.11E} {:.11E}\n'.format(
+                idx+1, element_dict[names[idx]], Decimal(xyz[idx][0]),
+                Decimal(xyz[idx][1]), Decimal(xyz[idx][2])))
+
+    # TODO: Write supercell info
