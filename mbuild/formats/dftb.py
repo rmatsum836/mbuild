@@ -5,7 +5,7 @@ from decimal import Decimal
 
 def read_dftb(gen_file, compound=None):
     """
-    Read the atom information from a DFTB+ HSD File
+    Read the atom information from a DFTB+ Gen File
     Currently only reading in 'GenFormat' types
 
     Parameters
@@ -45,7 +45,7 @@ def read_dftb(gen_file, compound=None):
 
     return compound
 
-def write_dftb(structure, filename, geometry='S'):
+def write_dftb(structure, filename, geometry='C'):
     """
     Write out ParmEd structure to a DFTB+ GEN File
 
@@ -55,16 +55,20 @@ def write_dftb(structure, filename, geometry='S'):
     filename: str
         Output file for DFTB+
 
-    geometry: str, default='S'
-        Type of geometry, 'F' is supercell in fractions of lattice vectors,
+    geometry: str, default='C'
+        Type of geometry:
+        'C' is cluster (non-periodic)
+        'F' is supercell in fractions of lattice vectors
         'S' is for supercell in Cartesian Coordinates
     """
+    if isinstance(structure, mb.Compound):
+        structure = structure.to_parmed()
 
     xyz = np.array([[atom.xx*10, atom.xy*10, atom.xz*10]
         for atom in structure.atoms])
 
     # TODO: Convert cartesian coordinates
-    if geometry == 'F':
+    if geometry in ['F', 'S']:
         pass
     names = [i.name for i in structure.atoms]
     n_atoms = len(structure.atoms)
