@@ -3,14 +3,14 @@ import json
 import mbuild as mb
 from decimal import Decimal
 
-def read_dftb(hsd_file, compound=None):
+def read_dftb(gen_file, compound=None):
     """
     Read the atom information from a DFTB+ HSD File
     Currently only reading in 'GenFormat' types
 
     Parameters
     ----------
-    hsd_file: str
+    gen_file: str
         Input file for DFTB+
     """
 
@@ -18,36 +18,28 @@ def read_dftb(hsd_file, compound=None):
         compound = mb.Compound()
 
     breaks = False
-    with open(hsd_file, 'r') as fi:
-        for i, line in enumerate(fi):
-            if breaks == False:
-                if line.split()[0] == 'Geometry':
-                    breaks = True
-            else:
-                # TODO: Handle geometry from a file
-                if 'gen' in line.split()[0]:
-                    continue
-                else:
-                    n_atoms = int(line.split()[0])
-                    break
-
-    # Read in only the geometry section of the file
-    # Not sure if skipping 3 lines from the geometry line will work for every file
-    geo_info = open(hsd_file, 'r').readlines()[i+1].split()
-    geo_coords = open(hsd_file, 'r').readlines()[i+3:i+n_atoms+3]
-
-    # Map atom to a type (integer)
-    atomtype_dict = {i+1:j for i,j in zip(range(len(geo_info)), geo_info)}
-
+    with open(gen_file, 'r') as fi:
+        line = fi.readline()
+        # Read in number of atoms and type of geometry
+        n_atoms = int(line.split()[0])
+        geo_type = line.split()[1]
+        # Read in only the geometry section of the file
+        geo_info = fi.readline().split()
+        # Read in geometry coordinates
+        geo_coords = fi.readlines()[:n_atoms]
+        # Map atom to a type (integer)
+        atomtype_dict = {i+1:j for i,j in zip(range(len(geo_info)), geo_info)}
+    
     coords = np.zeros(shape=(n_atoms, 3), dtype=np.float64)
-    for row, line in enumerate(geo_coords):
-        # Grab coordinates and convert to floats
-        # Convert from angstroms to nm
-        coords[row] = [float(i)/10 for i in line.split()[-3:]]
+    if geo_type == 'C':
+        for row, line in enumerate(geo_coords):
+            # Grab coordinates and convert to floats
+            # Convert from angstroms to nm
+            coords[row] = [float(i)/10 for i in line.split()[-3:]]
 
-        # Add particle
-        particle = mb.Compound(pos=coords[row], name=atomtype_dict[int(line.split()[1])])
-        compound.add(particle)
+            # Add particle
+            particle = mb.Compound(pos=coords[row], name=atomtype_dict[int(line.split()[1])])
+            compound.add(particle)
 
     # TODO: Read in supercell lattice information
 
