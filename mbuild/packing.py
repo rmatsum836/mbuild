@@ -319,6 +319,7 @@ def fill_region(compound, n_compounds, region, overlap=0.2,
                                              reg_mins[2], reg_maxs[0],
                                              reg_maxs[1], reg_maxs[2],
                                             PACKMOL_CONSTRAIN if rotate else "")
+            
 
         _run_packmol(input_text, filled_xyz, temp_file)
 
@@ -444,7 +445,7 @@ def fill_sphere(compound, sphere, n_compounds=None, density=None, overlap=0.2,
                 for c, r in zip(compound, compound_ratio):
                     prototype_mass += r * np.sum([a.mass for a in c.to_parmed().atoms])
                 # Conversion from kg/m^3 / amu * nm^3 to dimensionless units
-                n_prototypes = int(density/prototype_mass*(4/3*np.pi*radius**3)*.60224)
+                n_prototypes = int(density[0]/prototype_mass*(4/3*np.pi*radius**3)*.60224)
                 n_compounds = list()
                 for c in compound_ratio:
                     n_compounds.append(int(n_prototypes * c))
